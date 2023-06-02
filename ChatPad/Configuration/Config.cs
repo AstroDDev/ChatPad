@@ -18,6 +18,8 @@ namespace ChatPad.Configuration
         [JsonIgnore] public static TwitchPlaysOptions Settings { get { return instance.settings; } }
         [JsonIgnore] public static TwitchCommandList Commands { get { return instance.commands; } }
 
+        [JsonProperty("oauth")] public static string oauth;
+        [JsonProperty("username")] public static string username;
         [JsonProperty("settings")] private TwitchPlaysOptions settings;
         [JsonProperty("commands")] private TwitchCommandList commands;
 

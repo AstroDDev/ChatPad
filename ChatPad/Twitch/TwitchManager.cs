@@ -8,8 +8,10 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using ChatPad.Configuration;
 using ChatPad.Twitch;
+using ChatPad.Twitch.Prompt;
 
 namespace ChatPad
 {
@@ -19,8 +21,6 @@ namespace ChatPad
 
         private const string URL = "irc.chat.twitch.tv";
         private const int PORT = 6667;
-        private const string USER = "astro_test_bot";
-        private const string oauth = "oauth:itfs6m413nrgzcg3u7hu8h0tt70h3y";
 
         private TcpClient twitch;
         private StreamReader reader;
@@ -45,8 +45,24 @@ namespace ChatPad
             Manager = this;
         }
 
+        private static void CheckOAuth()
+        {
+            if (Config.username == null || Config.username == "" || Config.oauth == "" || Config.oauth == null)
+            {
+                OAuthPrompt form = new OAuthPrompt();
+                Form1.Instance.Enabled = false;
+
+                form.ShowDialog();
+
+                Form1.Instance.Enabled = true;
+                form.Dispose();
+            }
+        }
+
         public void Connect(string channel)
         {
+            CheckOAuth();
+
             Config.Settings.Channel = channel;
 
             twitch = new TcpClient(URL, PORT);
@@ -54,8 +70,8 @@ namespace ChatPad
             writer = new StreamWriter(twitch.GetStream());
 
             //Log In
-            writer.WriteLine("PASS " + oauth);
-            writer.WriteLine("NICK " + USER.ToLower());
+            writer.WriteLine("PASS " + Config.oauth);
+            writer.WriteLine("NICK " + Config.username.ToLower());
             writer.WriteLine("JOIN #" + channel.ToLower());
             writer.Flush();
         }
@@ -70,6 +86,8 @@ namespace ChatPad
 
         public static bool TryConnect(string channel)
         {
+            CheckOAuth();
+
             Manager = new TwitchManager();
 
             Config.Settings.Channel = channel;
@@ -79,8 +97,8 @@ namespace ChatPad
             Manager.writer = new StreamWriter(Manager.twitch.GetStream());
 
             //Log In
-            Manager.writer.WriteLine("PASS " + oauth);
-            Manager.writer.WriteLine("NICK " + USER.ToLower());
+            Manager.writer.WriteLine("PASS " + Config.oauth);
+            Manager.writer.WriteLine("NICK " + Config.username.ToLower());
             Manager.writer.WriteLine("JOIN #" + channel.ToLower());
             Manager.writer.Flush();
 

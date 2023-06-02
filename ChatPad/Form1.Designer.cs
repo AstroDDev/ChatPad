@@ -82,6 +82,8 @@ namespace ChatPad
             this.compoundSelectYAxisPassthrough = new System.Windows.Forms.ToolStripMenuItem();
             this.compoundSelectYAxisConfig = new System.Windows.Forms.ToolStripMenuItem();
             this.controllerPanel = new ChatPad.Graphics.BufferedPanel();
+            this.controllerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.twitchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.buttonSelectMenu.SuspendLayout();
@@ -96,7 +98,8 @@ namespace ChatPad
             this.optionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(700, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(933, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,10 +133,12 @@ namespace ChatPad
             // 
             // optionsToolStripMenuItem
             // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.controllerToolStripMenuItem,
+            this.twitchToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -148,33 +153,33 @@ namespace ChatPad
             this.tableLayoutPanel1.Controls.Add(this.linkLabel1, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(700, 81);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(933, 100);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
             // channelTextbox
             // 
             this.channelTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.channelTextbox.Location = new System.Drawing.Point(274, 30);
-            this.channelTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.channelTextbox.Location = new System.Drawing.Point(366, 38);
+            this.channelTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.channelTextbox.MaxLength = 25;
             this.channelTextbox.Name = "channelTextbox";
-            this.channelTextbox.Size = new System.Drawing.Size(151, 20);
+            this.channelTextbox.Size = new System.Drawing.Size(200, 22);
             this.channelTextbox.TabIndex = 10;
             this.channelTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // connectBtn
             // 
             this.connectBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.connectBtn.Location = new System.Drawing.Point(293, 57);
-            this.connectBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.connectBtn.Location = new System.Drawing.Point(392, 70);
+            this.connectBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.connectBtn.Name = "connectBtn";
-            this.connectBtn.Size = new System.Drawing.Size(112, 21);
+            this.connectBtn.Size = new System.Drawing.Size(149, 26);
             this.connectBtn.TabIndex = 11;
             this.connectBtn.Text = "Connect";
             this.connectBtn.UseVisualStyleBackColor = true;
@@ -185,8 +190,7 @@ namespace ChatPad
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(294, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(411, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 16);
             this.label1.TabIndex = 9;
@@ -199,11 +203,11 @@ namespace ChatPad
             this.controllerSelectList.FormattingEnabled = true;
             this.controllerSelectList.Items.AddRange(new object[] {
             "Select A Controller"});
-            this.controllerSelectList.Location = new System.Drawing.Point(2, 2);
-            this.controllerSelectList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.controllerSelectList.Location = new System.Drawing.Point(3, 2);
+            this.controllerSelectList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.controllerSelectList.MaxDropDownItems = 16;
             this.controllerSelectList.Name = "controllerSelectList";
-            this.controllerSelectList.Size = new System.Drawing.Size(151, 21);
+            this.controllerSelectList.Size = new System.Drawing.Size(200, 24);
             this.controllerSelectList.TabIndex = 0;
             this.controllerSelectList.DropDown += new System.EventHandler(this.controllerSelectList_DropDown);
             this.controllerSelectList.SelectedIndexChanged += new System.EventHandler(this.controllerSelectList_SelectedIndexChanged);
@@ -212,10 +216,9 @@ namespace ChatPad
             // 
             this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(567, 0);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel1.Location = new System.Drawing.Point(768, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(131, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(162, 16);
             this.linkLabel1.TabIndex = 12;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "youtube.com/@astro_dev";
@@ -489,24 +492,39 @@ namespace ChatPad
             // controllerPanel
             // 
             this.controllerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controllerPanel.Location = new System.Drawing.Point(0, 105);
-            this.controllerPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.controllerPanel.Location = new System.Drawing.Point(0, 124);
+            this.controllerPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.controllerPanel.Name = "controllerPanel";
-            this.controllerPanel.Size = new System.Drawing.Size(700, 345);
+            this.controllerPanel.Size = new System.Drawing.Size(933, 430);
             this.controllerPanel.TabIndex = 18;
             this.controllerPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.controllerPanel_Paint);
             this.controllerPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.controllerPanel_Click);
             // 
+            // controllerToolStripMenuItem
+            // 
+            this.controllerToolStripMenuItem.Name = "controllerToolStripMenuItem";
+            this.controllerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.controllerToolStripMenuItem.Text = "Controller";
+            this.controllerToolStripMenuItem.Click += new System.EventHandler(this.controllerOptionsToolStripMenuItem_Click);
+            // 
+            // twitchToolStripMenuItem
+            // 
+            this.twitchToolStripMenuItem.Name = "twitchToolStripMenuItem";
+            this.twitchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.twitchToolStripMenuItem.Text = "Twitch";
+            this.twitchToolStripMenuItem.Click += new System.EventHandler(this.twitchOptionsToolStripMenuItem_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 450);
+            this.ClientSize = new System.Drawing.Size(933, 554);
             this.Controls.Add(this.controllerPanel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Twitch Plays";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -574,6 +592,8 @@ namespace ChatPad
         private ToolStripMenuItem motionSelectZAxisConfig;
         internal BufferedPanel controllerPanel;
         public Button connectBtn;
+        private ToolStripMenuItem controllerToolStripMenuItem;
+        private ToolStripMenuItem twitchToolStripMenuItem;
     }
 }
 

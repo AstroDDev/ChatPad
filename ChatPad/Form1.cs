@@ -20,6 +20,7 @@ using ChatPad.Configuration.JSONObjects;
 using System.Drawing.Drawing2D;
 using ChatPad.Properties;
 using System.Runtime.InteropServices;
+using ChatPad.Twitch.Prompt;
 
 namespace ChatPad
 {
@@ -502,9 +503,21 @@ namespace ChatPad
             if (controllerMapper != null && controllerMapper.SelectedIndex > -1) controllerMapper.UpdateControllerState();
         }
 
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void controllerOptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OptionsForm form = new OptionsForm();
+            Enabled = false;
+            form.Show();
+            form.FormClosing += (s, evt) =>
+            {
+                Enabled = true;
+                form.Dispose();
+            };
+        }
+
+        private void twitchOptionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OAuthPrompt form = new OAuthPrompt();
             Enabled = false;
             form.Show();
             form.FormClosing += (s, evt) =>
