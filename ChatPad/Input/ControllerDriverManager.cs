@@ -68,7 +68,7 @@ namespace ChatPad.Input
 
                 sw.Stop();
 
-                Thread.Sleep(new TimeSpan(Math.Max(0, (long)(Config.Settings.MillisecondsPerUpdate * Program.TICKS_PER_MILLISECOND) - sw.ElapsedTicks)));
+                Thread.Sleep(new TimeSpan(Math.Max(0, (Program.TICKS_PER_SECOND / Program.POLLING_RATE) - sw.ElapsedTicks)));
             }
         }
 

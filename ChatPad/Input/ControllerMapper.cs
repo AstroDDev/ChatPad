@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using static SDL2.SDL;
 using vJoyInterfaceWrap;
+using System.Diagnostics;
 
 namespace ChatPad.Input
 {

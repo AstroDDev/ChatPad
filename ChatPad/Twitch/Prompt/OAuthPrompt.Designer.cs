@@ -40,15 +40,15 @@
             this.userbox.Location = new System.Drawing.Point(88, 6);
             this.userbox.MaxLength = 32;
             this.userbox.Name = "userbox";
-            this.userbox.Size = new System.Drawing.Size(200, 22);
+            this.userbox.Size = new System.Drawing.Size(308, 22);
             this.userbox.TabIndex = 0;
             // 
             // oauthBox
             // 
             this.oauthBox.Location = new System.Drawing.Point(88, 33);
-            this.oauthBox.MaxLength = 32;
+            this.oauthBox.MaxLength = 64;
             this.oauthBox.Name = "oauthBox";
-            this.oauthBox.Size = new System.Drawing.Size(200, 22);
+            this.oauthBox.Size = new System.Drawing.Size(308, 22);
             this.oauthBox.TabIndex = 1;
             this.oauthBox.UseSystemPasswordChar = true;
             // 
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 92);
+            this.ClientSize = new System.Drawing.Size(408, 92);
             this.Controls.Add(this.save);
             this.Controls.Add(this.oauthBox);
             this.Controls.Add(this.userbox);

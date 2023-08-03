@@ -10,6 +10,7 @@ namespace ChatPad
     {
         public const int TICKS_PER_MILLISECOND = 10000;
         public const int TICKS_PER_SECOND = 10000000;
+        public const int POLLING_RATE = 240;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
