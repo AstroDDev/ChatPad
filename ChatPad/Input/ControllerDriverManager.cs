@@ -164,9 +164,6 @@ namespace ChatPad.Input
             VJoystick.SetAxis(ConvertToVJOYAxis(Controller.LeftStickY), 1, HID_USAGES.HID_USAGE_Y);
             VJoystick.SetAxis(ConvertToVJOYAxis(Controller.RightStickX), 1, HID_USAGES.HID_USAGE_Z);
             VJoystick.SetAxis(ConvertToVJOYAxis(Controller.RightStickY), 1, HID_USAGES.HID_USAGE_RX);
-            VJoystick.SetAxis(ConvertToVJOYAxis(Controller.MotionX), 1, HID_USAGES.HID_USAGE_SL0);
-            VJoystick.SetAxis(ConvertToVJOYAxis(Controller.MotionY), 1, HID_USAGES.HID_USAGE_SL1);
-            VJoystick.SetAxis(ConvertToVJOYAxis(Controller.MotionZ), 1, HID_USAGES.HID_USAGE_WHL);
         }
 
         private void InitXbox()

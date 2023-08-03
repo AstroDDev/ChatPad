@@ -333,17 +333,6 @@ namespace ChatPad
 
                             buttonSelectMenu.Show(MousePosition);
                             return;
-                        case PaintButtonType.Motion:
-                            motionSelectXAxisEnabled.Checked = Config.Commands.MotionXAxis.Enabled;
-                            motionSelectYAxisEnabled.Checked = Config.Commands.MotionYAxis.Enabled;
-                            motionSelectZAxisEnabled.Checked = Config.Commands.MotionZAxis.Enabled;
-
-                            motionSelectXAxisPassthrough.Checked = Config.Commands.MotionXAxis.Passthrough;
-                            motionSelectYAxisPassthrough.Checked = Config.Commands.MotionYAxis.Passthrough;
-                            motionSelectZAxisPassthrough.Checked = Config.Commands.MotionZAxis.Passthrough;
-
-                            motionSelectMenu.Show(MousePosition);
-                            return;
                         case PaintButtonType.Stick:
                             compoundSelectName.Text = controllerButtons[i].Name;
 
@@ -436,11 +425,8 @@ namespace ChatPad
                 case 0:
                     directAxis = controllerButtons[selectedButton].AxisX;
                     break;
-                case 1:
+                default://1
                     directAxis = controllerButtons[selectedButton].AxisY;
-                    break;
-                default:
-                    directAxis = controllerButtons[selectedButton].AxisZ;
                     break;
             }
 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ChatPad.Input.Protocals;
 using System.Drawing;
 using ChatPad.Configuration;
 using ChatPad.Configuration.JSONObjects;
@@ -21,7 +20,6 @@ namespace ChatPad.Input
         public List<string> ControllerList { get; private set; }
         public int SelectedIndex = -1;
         public IntPtr SelectedDevice { get; private set; }
-        private bool MotionEnabled;
 
         public ControllerMapper() 
         {
@@ -60,12 +58,6 @@ namespace ChatPad.Input
             if (SelectedIndex != -1) SDL_GameControllerClose(SelectedDevice);
             SelectedIndex = index;
             SelectedDevice = SDL_GameControllerOpen(index);
-
-            MotionEnabled = SDL_GameControllerHasSensor(SelectedDevice, SDL_SensorType.SDL_SENSOR_GYRO) == SDL_bool.SDL_TRUE;
-            if (MotionEnabled)
-            {
-                SDL_GameControllerSetSensorEnabled(SelectedDevice, SDL_SensorType.SDL_SENSOR_GYRO, SDL_bool.SDL_TRUE);
-            }
         }
 
         public override void UpdateControllerState()
@@ -95,16 +87,6 @@ namespace ChatPad.Input
             LeftStickY = SDL_GameControllerGetAxis(SelectedDevice, SDL_GameControllerAxis.SDL_CONTROLLER_AXIS_LEFTY) / (double)short.MaxValue;
             RightStickX = SDL_GameControllerGetAxis(SelectedDevice, SDL_GameControllerAxis.SDL_CONTROLLER_AXIS_RIGHTX) / (double)short.MaxValue;
             RightStickY = SDL_GameControllerGetAxis(SelectedDevice, SDL_GameControllerAxis.SDL_CONTROLLER_AXIS_RIGHTY) / (double)short.MaxValue;
-
-            if (MotionEnabled)
-            {
-                float[] values = new float[3];
-                int res = SDL_GameControllerGetSensorData(SelectedDevice, SDL_SensorType.SDL_SENSOR_GYRO, values, 3);
-
-                MotionX = values[0];
-                MotionY = values[1];
-                MotionZ = values[2];
-            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace ChatPad.Graphics
 {
     public enum PaintButtonType
     {
-        None, Button, Stick, Motion
+        None, Button, Stick
     }
     public enum PaintButtonControls
     {
@@ -44,8 +44,6 @@ namespace ChatPad.Graphics
                         return Config.Commands.LeftStickXAxis;
                     case PaintButtonControls.RightStick:
                         return Config.Commands.RightStickXAxis;
-                    case PaintButtonControls.Motion:
-                        return Config.Commands.MotionXAxis;
                     default: return null;
                 }
             }
@@ -60,13 +58,10 @@ namespace ChatPad.Graphics
                         return Config.Commands.LeftStickYAxis;
                     case PaintButtonControls.RightStick:
                         return Config.Commands.RightStickYAxis;
-                    case PaintButtonControls.Motion:
-                        return Config.Commands.MotionYAxis;
                     default: return null;
                 }
             }
         }
-        public CommandAxis AxisZ { get { if (Control == PaintButtonControls.Motion) { return Config.Commands.MotionZAxis; } else return null; } }
 
         public PaintButton(PaintButtonControls i, RectangleF drawRect, RectangleF inputRect, bool circularInput, PaintButtonType type)
         {

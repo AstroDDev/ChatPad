@@ -12,16 +12,13 @@ namespace ChatPad.Configuration
     internal class TwitchCommandList
     {
         [JsonIgnore] public const int BUTTON_LENGTH = 16;
-        [JsonIgnore] public const int AXIS_LENGTH = 7;
+        [JsonIgnore] public const int AXIS_LENGTH = 4;
         [JsonIgnore] public static int MACRO_LENGTH { get; private set; } = 0;
 
         [JsonProperty("left_stick_x_axis")] public CommandAxis LeftStickXAxis { get { return AxisMap[0]; } set { AxisMap[0] = value; } }
         [JsonProperty("left_stick_y_axis")] public CommandAxis LeftStickYAxis { get { return AxisMap[1]; } set { AxisMap[1] = value; } }
         [JsonProperty("right_stick_x_axis")] public CommandAxis RightStickXAxis { get { return AxisMap[2]; } set { AxisMap[2] = value; } }
         [JsonProperty("right_stick_y_axis")] public CommandAxis RightStickYAxis { get { return AxisMap[3]; } set { AxisMap[3] = value; } }
-        [JsonProperty("motion_x_axis_x")] public CommandAxis MotionXAxis { get { return AxisMap[4]; } set { AxisMap[4] = value; } }
-        [JsonProperty("motion_y_axis")] public CommandAxis MotionYAxis { get { return AxisMap[5]; } set { AxisMap[5] = value; } }
-        [JsonProperty("motion_z_axis")] public CommandAxis MotionZAxis { get { return AxisMap[6]; } set { AxisMap[6] = value; } }
 
         [JsonProperty("a_button")] public CommandButton AButton { get { return ButtonMap[0]; } set { ButtonMap[0] = value; } }
         [JsonProperty("b_button")] public CommandButton BButton { get { return ButtonMap[1]; } set { ButtonMap[1] = value; } }

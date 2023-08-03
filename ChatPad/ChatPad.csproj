@@ -111,8 +111,6 @@
     <Compile Include="Input\ControllerDriverManager.cs" />
     <Compile Include="Input\ControllerMapper.cs" />
     <Compile Include="Input\VirtualController.cs" />
-    <Compile Include="Input\Protocals\DInput.cs" />
-    <Compile Include="Input\Protocals\XInput.cs" />
     <Compile Include="Input\VirtualControllerManager.cs" />
     <Compile Include="Twitch\ChatMessage.cs" />
     <Compile Include="Form1.cs">

@@ -29,9 +29,6 @@ namespace ChatPad.Input
         public double LeftStickY { get { return AxisMap[1]; } set { AxisMap[1] = value; } }
         public double RightStickX { get { return AxisMap[2]; } set { AxisMap[2] = value; } }
         public double RightStickY { get { return AxisMap[3]; } set { AxisMap[3] = value; } }
-        public double MotionX { get { return AxisMap[4]; } set { AxisMap[4] = value; } }
-        public double MotionY { get { return AxisMap[5]; } set { AxisMap[5] = value; } }
-        public double MotionZ { get { return AxisMap[6]; } set { AxisMap[6] = value; } }
 
         public bool[] ButtonMap = new bool[TwitchCommandList.BUTTON_LENGTH];
         public double[] AxisMap = new double[TwitchCommandList.AXIS_LENGTH];

@@ -51,9 +51,6 @@ namespace ChatPad.Input
                     LeftStickY = Passthrough.LeftStickY;
                     RightStickX = Passthrough.RightStickX;
                     RightStickY = Passthrough.RightStickY;
-                    MotionX = Passthrough.MotionX;
-                    MotionY = Passthrough.MotionY;
-                    MotionZ = Passthrough.MotionZ;
                 }
                 else
                 {
@@ -68,9 +65,6 @@ namespace ChatPad.Input
                     LeftStickY = Config.Commands.LeftStickYAxis.Enabled ? Config.Commands.LeftStickYAxis.Passthrough ? Passthrough.LeftStickY : Twitch.LeftStickY : 0;
                     RightStickX = Config.Commands.RightStickXAxis.Enabled ? Config.Commands.RightStickXAxis.Passthrough ? Passthrough.RightStickX : Twitch.RightStickX : 0;
                     RightStickY = Config.Commands.RightStickYAxis.Enabled ? Config.Commands.RightStickYAxis.Passthrough ? Passthrough.RightStickY : Twitch.RightStickY : 0;
-                    MotionX = Config.Commands.MotionXAxis.Enabled ? Config.Commands.MotionXAxis.Passthrough ? Passthrough.MotionX : Twitch.MotionX : 0;
-                    MotionY = Config.Commands.MotionYAxis.Enabled ? Config.Commands.MotionYAxis.Passthrough ? Passthrough.MotionY : Twitch.MotionY : 0;
-                    MotionZ = Config.Commands.MotionZAxis.Enabled ? Config.Commands.MotionZAxis.Passthrough ? Passthrough.MotionZ : Twitch.MotionZ : 0;
                 }
 
                 sw.Stop();
