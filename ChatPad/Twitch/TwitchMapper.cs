@@ -113,10 +113,16 @@ namespace ChatPad.Twitch
                     instance.AxisScalar[i] += vote.AxisVote[i] ? vote.Weight : 0;
                 }
             }
+            double LeftStickScalar = Math.Max(instance.AxisScalar[0], instance.AxisScalar[1]);
+            instance.AxisScalar[0] = LeftStickScalar;
+            instance.AxisScalar[1] = LeftStickScalar;
+            double RightStickScalar = Math.Max(instance.AxisScalar[2], instance.AxisScalar[3]);
+            instance.AxisScalar[2] = RightStickScalar;
+            instance.AxisScalar[3] = RightStickScalar;
             for (int i = 0; i < TwitchCommandList.BUTTON_LENGTH; i++) instance.ButtonWeight[i] /= instance.ButtonScalar;
             for (int i = 0; i < TwitchCommandList.AXIS_LENGTH; i++)
             {
-                instance.AxisValue[i] /= instance.AxisScalar[i];
+                instance.AxisValue[i] *= Config.Commands.AxisMap[i].Threshold / instance.AxisScalar[i];
             }
         }
 
@@ -154,14 +160,9 @@ namespace ChatPad.Twitch
             }
 
             //Axies might need to be hard coded!
-            //CHECK MOTION BEHAVIOUR!
             for (int i = 0; i < TwitchCommandList.AXIS_LENGTH; i++)
             {
-                AxisMap[i] = 0;
-                if (Math.Abs(AxisValue[i]) > Config.Commands.AxisMap[i].Threshold)
-                {
-                    AxisMap[i] = AxisValue[i];
-                }
+                AxisMap[i] = AxisValue[i];
             }
         }
 

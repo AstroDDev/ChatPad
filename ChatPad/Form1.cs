@@ -47,9 +47,6 @@ namespace ChatPad
             buttonSelectMenu.Closing += (s, evt) => {
                 if (evt.CloseReason == ToolStripDropDownCloseReason.ItemClicked) evt.Cancel = true;
             };
-            motionSelectMenu.Closing += (s, evt) => {
-                if (evt.CloseReason == ToolStripDropDownCloseReason.ItemClicked) evt.Cancel = true;
-            };
             compoundSelectMenu.Closing += (s, evt) => {
                 if (evt.CloseReason == ToolStripDropDownCloseReason.ItemClicked) evt.Cancel = true;
             };
@@ -58,9 +55,6 @@ namespace ChatPad
 
             compoundSelectXAxisConfig.Click += (s, evt) => { axisSelectConfig_Click(0); };
             compoundSelectYAxisConfig.Click += (s, evt) => { axisSelectConfig_Click(1); };
-            motionSelectXAxisConfig.Click += (s, evt) => { axisSelectConfig_Click(0); };
-            motionSelectYAxisConfig.Click += (s, evt) => { axisSelectConfig_Click(1); };
-            motionSelectZAxisConfig.Click += (s, evt) => { axisSelectConfig_Click(2); };
 
             buttonSelectEnabled.CheckedChanged += (s, evt) => { if (selectedButton > -1) controllerButtons[selectedButton].Button.Enabled = buttonSelectEnabled.Checked; };
             buttonSelectPassthrough.CheckedChanged += (s, evt) => { if (selectedButton > -1) controllerButtons[selectedButton].Button.Passthrough = buttonSelectPassthrough.Checked; };
@@ -367,6 +361,7 @@ namespace ChatPad
             form.label1.Text = "Press";
             form.label2.Text = "Hold";
             form.label3.Text = "Release";
+            form.label4.Text = "Threshold";
 
             form.list1.Items.Clear();
             form.list1.Items.AddRange(controllerButtons[selectedButton].Button.Press);
@@ -418,6 +413,7 @@ namespace ChatPad
             form.label1.Text = "Min (-1)";
             form.label2.Text = "Zero (0)";
             form.label3.Text = "Max (1)";
+            form.label4.Text = "Range";
 
             CommandAxis directAxis;
             switch (axis)
