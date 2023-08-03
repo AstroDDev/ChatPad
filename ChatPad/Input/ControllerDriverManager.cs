@@ -56,7 +56,7 @@ namespace ChatPad.Input
 
         public void Update()
         {
-            while (updateThread != null)
+            while (updateThread != null && updateThread.IsAlive)
             {
                 RuntimeOptions.Frame++;
 

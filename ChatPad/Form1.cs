@@ -117,6 +117,7 @@ namespace ChatPad
         {
             if (controllerDriverManager != null) controllerDriverManager.Stop();
             TwitchManager.Stop();
+            controllerDriverManager.Stop();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

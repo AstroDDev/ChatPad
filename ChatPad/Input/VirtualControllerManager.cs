@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,6 +28,8 @@ namespace ChatPad.Input
 
             updateTwitchThread = new Thread(UpdateTwitchController);
             updateTwitchThread.Start();
+
+            Form1.Instance.FormClosing += (s, evt) => Stop();
         }
 
         public override void UpdateControllerState()
@@ -35,9 +38,14 @@ namespace ChatPad.Input
             //Form1.Instance.controllerPanel.Invalidate();
         }
 
+        private void Stop()
+        {
+            updateTwitchThread = null;
+        }
+
         private void UpdateTwitchController()
         {
-            while (updateTwitchThread.IsAlive && updateTwitchThread != null) {
+            while (updateTwitchThread != null && updateTwitchThread.IsAlive) {
                 Stopwatch sw = Stopwatch.StartNew();
 
                 if (RuntimeOptions.Paused || RuntimeOptions.FullPassthrough)
