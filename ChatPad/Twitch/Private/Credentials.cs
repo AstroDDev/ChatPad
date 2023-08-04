@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChatPad.Twitch.Private
 {
-    internal class Credentials
+    internal static class Credentials
     {
-      //This is a test
+        static readonly string Username = "";
+        static readonly string OAuth = "";
     }
 }

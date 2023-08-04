@@ -125,6 +125,7 @@
     <Compile Include="Graphics\PaintButton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Twitch\Private\Credentials.cs" />
     <Compile Include="Twitch\Prompt\OAuthPrompt.cs">
       <SubType>Form</SubType>
     </Compile>
